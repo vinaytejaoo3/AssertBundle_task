@@ -1,0 +1,15 @@
+resources:
+  jobs:
+    ingestion_job:
+      name: ingestion_job
+
+      tasks:
+        - task_key: ingestion
+          notebook_task:
+            notebook_path: ../../src/Notebooks/ingestion.ipynb
+            source: WORKSPACE
+            base_parameters:
+              catalog: ${var.catalog}
+
+      queue:
+        enabled: true
